@@ -13,7 +13,7 @@ function getCollege(id) {
   return get(`http://localhost:3000/college/${id}`);
 }
 
-function getOneUserWithCollege(userId) {
+function getUserWithCollege(userId) {
   return new Promise((resolve, reject) => {
     getUser(userId).then((userResp) => {
       const { data: user = {} } = userResp;
@@ -30,13 +30,13 @@ function getOneUserWithCollege(userId) {
   });
 }
 
-function getAllUsersWithCollege() {
+function getUsersListwithCollege() {
   return getUsersList().then((resp) => {
     const { data: userList = [] } = resp;
-    const promises = userList.map((userId) => getOneUserWithCollege(userId));
+    const promises = userList.map((userId) => getUserWithCollege(userId));
 
     return Promise.all(promises);
   });
 }
 
-getAllUsersWithCollege().then((resp) => console.log(resp));
+getUsersListwithCollege().then((resp) => console.log(resp));
