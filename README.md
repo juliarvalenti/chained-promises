@@ -5,7 +5,7 @@
 1. Clone the repo
 
 ```sh
-git clone https://github.com/
+git clone https://github.com/juliarvalenti/chained-promises
 ```
 
 2. Install NPM packages
